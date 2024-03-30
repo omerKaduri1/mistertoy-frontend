@@ -1,0 +1,13 @@
+.toy-filter {
+    align-self: center;
+    margin-block-start: 1.5em;
+}
+
+.name-inStock-filter {
+    margin-block-end: 1em;
+    gap: .5em;
+}
+
+.labels-filter {
+    align-self: center;
+}

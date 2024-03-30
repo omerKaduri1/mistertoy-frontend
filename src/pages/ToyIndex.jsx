@@ -68,8 +68,8 @@ export function ToyIndex() {
 
     return (
         <div className='toy-app'>
-            <main className='main-container'>
-                <Link to="/toy/edit">Add Toy</Link>
+            <main className='main-container flex column align-center'>
+                <Link to="/toy/edit"><button className='add-btn'>Add Toy</button></Link>
                 {/* <button className='add-btn' onClick={onAddToy}>Add Random Toy</button> */}
                 <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} />
                 <ToySort sortBy={sortBy} onSetSort={onSetSort}/>

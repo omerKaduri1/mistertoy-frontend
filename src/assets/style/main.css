@@ -1,5 +1,14 @@
+@import 'setup/typography.css';
+@import 'setup/vars.css';
+
 @import 'basics/helpers.css';
 @import 'basics/base.css';
 
 @import 'cmps/ToyList.css';
-@import 'cmps/AppHeader.css'
+@import 'cmps/AppHeader.css';
+@import 'cmps/ToyFilter.css';
+@import 'cmps/ToySort.css';
+@import 'cmps/ToyPreview.css';
+@import 'pages/ToyIndex.css';
+@import 'pages/LoginSignup.css';
+@import 'pages/ToyEdit.css'

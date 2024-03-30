@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { utilService } from "../services/util.service.js"
 import { useEffectUpdate } from "../customHooks/useEffectUpdate.js"
 import { toyService } from "../services/toy.service.js"
+import { LabelSelect } from "./LabelSelect.jsx"
 
 const toyLabel = toyService.getLabels()
 
@@ -30,62 +31,39 @@ export function ToyFilter({ filterBy, onSetFilter }) {
         let filter = { ...filterByToEdit }
         if (filter.labels.includes(label)) filter.labels = filter.labels.filter(l => l !== label)
         else filter.labels.push(label)
+        if (label === '') filter = { ...filterByToEdit, labels: [...toyLabel] }
         setFilterByToEdit(filter)
     }
 
     return (
-        <section className="toy-filter full main-layout">
-            <h2>Toys Filter</h2>
-            <form onSubmit={onSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input type="text"
-                    id="name"
-                    name="txt"
-                    placeholder="By name"
-                    value={filterByToEdit.txt}
-                    onChange={handleChange}
-                />
+        <section className="toy-filter">
+            <form onSubmit={onSubmit} className="flex column">
+                <section className="name-inStock-filter flex align-center">
 
-                {/* <label htmlFor="all">
-                    <input defaultChecked={filterByToEdit.isInStock === 'all'} type="radio" name="isInStock" value="all" id="all" onChange={handleChange} />
-                    All
-                </label>
+                    <label htmlFor="name">Name:</label>
+                    <input type="text"
+                        id="name"
+                        name="txt"
+                        placeholder="By name"
+                        value={filterByToEdit.txt}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="in-stock">
-                    <input defaultChecked={filterByToEdit.isInStock === 'inStock'} type="radio" name="isInStock" value="inStock" id="inStock" onChange={handleChange} />
-                    In stock
-                </label>
-
-                <label htmlFor="out-of-stock">
-                    <input defaultChecked={filterByToEdit.isInStock === 'outOfStock'} type="radio" name="isInStock" value="outOfStock" id="outOfStock" onChange={handleChange} />
-                    Out of stock
-                </label> */}
-
-                <label>
-                    <span className='filter-label'>In stock</span>
+                    <label htmlFor="inStock">Availability:</label>
+                    <span className='filter-label'></span>
                     <select
                         onChange={handleChange}
                         name="inStock"
                         value={filterByToEdit.inStock || ''}>
-                        <option value=""> All </option>
+                        <option value="all"> All </option>
                         <option value={true}>In stock</option>
                         <option value={false}>Out of stock</option>
                     </select>
-                </label>
+                </section>
 
-                <label>
-                    <span className='filter-label'>Filter By</span>
-                    <select
-                        onChange={onSelectLabels}
-                        name="labels"
-                        multiple
-                        value={filterByToEdit.labels || []}>
-                        <option value=""> All </option>
-                        <>
-                            {toyLabel.map(label => <option key={label} value={label}>{label}</option>)}
-                        </>
-                    </select>
-                </label>
+                <section className="labels-filter">
+                    <LabelSelect setFilterByToEdit={setFilterByToEdit} />
+                </section>
             </form>
 
         </section>

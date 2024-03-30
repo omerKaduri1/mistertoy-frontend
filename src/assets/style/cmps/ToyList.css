@@ -1,4 +1,7 @@
 .toy-list{
     flex-wrap: wrap;
     gap: 1.5em;
+    align-self: center;
+    margin-inline: 3em;
+    margin-block: 2em;
 }

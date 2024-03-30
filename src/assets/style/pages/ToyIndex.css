@@ -1,0 +1,5 @@
+.add-btn{
+    margin-block-start: 1em;
+    border-radius: 10px;
+    background-color: var(--item-color);
+}

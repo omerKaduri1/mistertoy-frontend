@@ -1,0 +1,17 @@
+.toy-sort {
+    align-self: center;
+    margin-block: 1.5em;
+}
+
+.toy-sort h3 {
+    text-align: center;
+}
+
+.toy-sort .sort-btns{
+    gap: 1em;
+}
+
+.sort-btns button {
+    border-radius: 10px;
+    background-color: var(--item-color);
+}

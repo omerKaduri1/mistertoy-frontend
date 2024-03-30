@@ -76,7 +76,7 @@ function getEmptyToy() {
         name: '',
         price: '',
         labels: [],
-        inStock: ''
+        inStock: true
     }
 }
 
@@ -97,7 +97,7 @@ function getDefaultFilter() {
     return {
         txt: '',
         labels: [],
-        inStock: null
+        inStock: 'all'
     }
 }
 

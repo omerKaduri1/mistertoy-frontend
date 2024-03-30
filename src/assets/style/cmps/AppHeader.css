@@ -1,7 +1,26 @@
 .app-header {
-    background-color: darkcyan;
+    justify-content: space-between;
+    /* height: 250px; */
 }
 
 .app-nav {
     gap: 1em;
+}
+
+.logo {
+    margin-inline-start: 2em;
+}
+
+.header-container{
+    justify-content: flex-end;
+}
+
+button.fa-user {
+    background-color: transparent;
+    border: none;
+}
+
+.fa.fa-user::before {
+    content: '\f007';
+    font-size: 1.3em;
 }

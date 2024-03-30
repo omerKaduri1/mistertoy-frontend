@@ -5,11 +5,11 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
-    debounce
+    debounce,
+    getRandomImgSrc
 }
 
 function makeId(length = 6) {
-
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -43,6 +43,10 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function getRandomImgSrc(){
+    return `../assets/img/${getRandomIntInclusive(1, 7)}.jpg`
 }
 
 // In our utilService

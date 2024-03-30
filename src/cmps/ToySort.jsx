@@ -11,9 +11,11 @@ export function ToySort({ sortBy, onSetSort }) {
 
     return <section className="toy-sort">
         <h3>Sort toys:</h3>
-        <button onClick={() => handleSortChange('name')}>By name</button>
-        <button onClick={() => handleSortChange('price')}>By price</button>
-        <button onClick={() => handleSortChange('createdAt')}>Newest</button>
-        <button onClick={handleToggleDirection}>Change direction {sortBy.asc ? '^' : 'v'}</button>
+        <section className='sort-btns flex space-between'>
+            <button onClick={() => handleSortChange('name')}>By name</button>
+            <button onClick={() => handleSortChange('price')}>By price</button>
+            <button onClick={() => handleSortChange('createdAt')}>Newest</button>
+            <button onClick={handleToggleDirection}>Change direction {sortBy.asc ? '^' : 'v'}</button>
+        </section>
     </section>
 }

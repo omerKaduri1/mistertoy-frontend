@@ -8,7 +8,6 @@ export function ToyDetails() {
     const { toyId } = useParams()
 
     useEffect(() => {
-        console.log('toyId:', toyId)
         if (toyId) loadToy()
     }, [toyId])
 
@@ -23,7 +22,7 @@ export function ToyDetails() {
     if (!toy) return <div>Loading...</div>
     return (
         <section className="toy-details">
-            <h1>Toy vendor : {toy.vendor}</h1>
+            <h1>Toy name : {toy.name}</h1>
             <h5>Price: ${toy.price}</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
             <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
