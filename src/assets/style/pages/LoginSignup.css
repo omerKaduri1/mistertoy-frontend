@@ -1,0 +1,10 @@
+.login-form {
+    margin-block: 2em;
+    gap: 1em;
+}
+
+.login-form input {
+    width: 15em;
+    height: 2em;
+}
+

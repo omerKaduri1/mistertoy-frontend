@@ -1,4 +1,4 @@
-import { userService } from "../../services/user.service-old.js"
+import { userService } from "../../services/user.service.js"
 
 //* User
 export const SET_USER = 'SET_USER'
