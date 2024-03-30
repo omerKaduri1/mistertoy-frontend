@@ -27,7 +27,6 @@ export function ToyEdit() {
     function handleChange({ target }) {
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
-        console.log(value);
         setToyToEdit((prevToy) => ({ ...prevToy, [field]: value }))
     }
 

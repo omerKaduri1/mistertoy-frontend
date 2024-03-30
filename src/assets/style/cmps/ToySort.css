@@ -13,5 +13,5 @@
 
 .sort-btns button {
     border-radius: 10px;
-    background-color: var(--item-color);
+    background-color: var(--secondery-color);
 }
