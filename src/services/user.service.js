@@ -1,7 +1,9 @@
-import { storageService } from './async-storage.service.js'
+// import { storageService } from './async-storage.service.js'
+import { httpService } from './http.service.js'
 
-const STORAGE_KEY = 'userDB'
+// const STORAGE_KEY = 'userDB'
 const STORAGE_KEY_LOGGEDIN = 'loggedinUser'
+const BASE_URL = 'auth/'
 
 export const userService = {
     login,
@@ -18,20 +20,15 @@ function getById(userId) {
     return storageService.get(STORAGE_KEY, userId)
 }
 
-function login({ username, password }) {
-    return storageService.query(STORAGE_KEY)
-        .then(users => {
-            const user = users.find(user => user.username === username)
-            // if (user && user.password !== password) return _setLoggedinUser(user)
-            if (user) return _setLoggedinUser(user)
-            else return Promise.reject('Invalid login')
-        })
+async function login({ username, password }) {
+    const user = await httpService.post(BASE_URL + 'login', { username, password })
+    if (user) return _setLoggedinUser(user)
 }
 
-function signup({ username, password, fullname }) {
+async function signup({ username, password, fullname }) {
     const user = { username, password, fullname, score: 10000 }
-    return storageService.post(STORAGE_KEY, user)
-        .then(_setLoggedinUser)
+    const savedUser = httpService.post(BASE_URL + 'signup', user)
+    if (savedUser) return _setLoggedinUser(savedUser)
 }
 
 
@@ -49,9 +46,9 @@ function updateScore(diff) {
         })
 }
 
-function logout() {
+async function logout() {
+    await httpService.post(BASE_URL + 'logout')
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
-    return Promise.resolve()
 }
 
 function getLoggedinUser() {
@@ -59,9 +56,9 @@ function getLoggedinUser() {
 }
 
 function _setLoggedinUser(user) {
-    const userToSave = { _id: user._id, fullname: user.fullname, score: user.score }
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
-    return userToSave
+    // const userToSave = { _id: user._id, fullname: user.fullname, score: user.score }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(user))
+    return user
 }
 
 

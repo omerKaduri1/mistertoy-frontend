@@ -33,6 +33,7 @@ export function ToyIndex() {
     }
 
     function onRemoveToy(toyId) {
+        console.log(toyId);
         removeToyOptimistic(toyId)
             .then(() => {
                 setMsg({ txt: 'Toy removed successfully', type: 'success' })

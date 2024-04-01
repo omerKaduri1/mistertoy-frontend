@@ -15,7 +15,6 @@ export function ToyPreview({ toy, onRemoveToy }) {
     function getInStockStyle() {
         if (toy.inStock) return 'green'
         else return 'red'
-
     }
 
     return (

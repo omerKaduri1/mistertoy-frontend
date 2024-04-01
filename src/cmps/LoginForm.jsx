@@ -3,8 +3,7 @@ import { userService } from "../services/user.service.js"
 
 
 export function LoginForm({ onLogin, isSignup }) {
-
-    const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
+ const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
     function handleChange({ target }) {
         const { name: field, value } = target
