@@ -1,0 +1,23 @@
+.toy-details h1 {
+    font-size: 1.2em;
+}
+
+.toy-details h5 {
+    font-size: 1em;
+    margin-block: 0;
+}
+
+.toy-details p {
+    font-size: .9em;
+    text-align: left;
+    margin-inline-start: 10px;
+}
+
+.toy-actions {
+    margin-block-start: 1em;
+    gap: 1em;
+}
+
+.toy-actions>* {
+    margin-inline: 3em;
+}

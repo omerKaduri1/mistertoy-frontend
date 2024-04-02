@@ -12,4 +12,5 @@
 @import 'cmps/ToyPreview.css';
 @import 'pages/ToyIndex.css';
 @import 'pages/LoginSignup.css';
-@import 'pages/ToyEdit.css'
+@import 'pages/ToyEdit.css';
+@import 'pages/ToyDetails.css';

@@ -67,30 +67,25 @@ export function ToyDetails() {
             console.log('problem with removing review', err)
         }
     }
-    
+
     const txtR = review.txt
 
     if (!toy) return <div>Loading...</div>
     return (
         <section>
 
-            <section className="toy-details">
-                <h1>Toy name : {toy.name}</h1>
+            <section className="toy-details flex column align-center">
+                <h1>Toy name: {toy.name}</h1>
                 <h5>Price: ${toy.price}</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
-                <Link to={`/toy/edit/${toy._id}`}>Edit</Link> &nbsp;
-                <Link to={`/toy`}>Back</Link>
-                <p>
-                    <Link to="/toy/lqIQG">Next Toy</Link>
-                </p>
+                <p className="toy-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
             </section>
 
             {!!reviews.length && <ReviewList
                 reviews={reviews}
                 onRemoveReview={onRemoveReview}
                 onSaveReview={onSaveReview} />}
-            <section className="reviews">
-                <form className="login-form" onSubmit={onSaveReview}>
+            <section className="add-reviews">
+                <form className="login-form flex column align-center justify-center" onSubmit={onSaveReview}>
                     <input
                         type="text"
                         name="txt"
@@ -99,8 +94,12 @@ export function ToyDetails() {
                         onChange={handleReviewChange}
                         required
                     />
-                    <button>Submit Review</button>
+                    <button>Add Review</button>
                 </form>
+                <section className="toy-actions flex space-between">
+                    <Link to={`/toy/edit/${toy._id}`}><button className="fa fa-edit"></button></Link> &nbsp;
+                    <Link to={`/toy`}>Back</Link>
+                </section>
             </section>
 
         </section>
