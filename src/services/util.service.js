@@ -6,7 +6,8 @@ export const utilService = {
     saveToStorage,
     animateCSS,
     debounce,
-    getRandomImgSrc
+    getRandomImgSrc,
+    getEmptyReview
 }
 
 function makeId(length = 6) {
@@ -45,7 +46,7 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-function getRandomImgSrc(){
+function getRandomImgSrc() {
     return `../assets/img/${getRandomIntInclusive(1, 7)}.jpg`
 }
 
@@ -74,5 +75,11 @@ function debounce(func, timeout = 300) {
         timer = setTimeout(() => {
             func.apply(this, args)
         }, timeout)
+    }
+}
+
+function getEmptyReview() {
+    return {
+        txt: '',
     }
 }
