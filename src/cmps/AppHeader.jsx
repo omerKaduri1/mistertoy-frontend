@@ -30,7 +30,7 @@ export function AppHeader() {
                 <NavLink to="/toy" >Toys</NavLink>
                 <NavLink to="/dashboard">Dashboard</NavLink>
                 {user ? (
-                    < section >
+                    < section className='user-section flex column align-center'>
                         <span to={`/user/${user._id}`}>Hello {user.fullname}</span>
                         <button onClick={onLogout}>Logout</button>
                     </ section >

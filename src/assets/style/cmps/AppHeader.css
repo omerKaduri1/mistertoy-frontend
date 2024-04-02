@@ -11,6 +11,16 @@ header {
     margin-inline-start: 2em;
 }
 
+.user-section{
+    gap: 3px;
+}
+
+.user-section button {
+    width: fit-content;
+    background-color: rgb(222, 217, 217);
+    border-radius: 5px;
+}
+
 button.fa-user {
     background-color: transparent;
     border: none;

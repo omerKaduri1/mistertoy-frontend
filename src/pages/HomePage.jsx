@@ -1,5 +1,5 @@
 export function HomePage(){
     return <section>
-        <h1>Home</h1>
+        <h1>Welcome to Toy store!</h1>
     </section>
 }
